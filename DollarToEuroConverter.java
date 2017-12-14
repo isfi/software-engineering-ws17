@@ -2,6 +2,7 @@ public class DollarToEuroConverter extends CurrencyConverter
 {
   public DollarToEuroConverter() {}
 
+  @Override
   public double convert(double inDollars) {
     if (checkInput(inDollars)){
       return inDollars*0.85;

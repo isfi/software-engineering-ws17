@@ -1,4 +1,0 @@
-java Main DollarToEuro 10000
-Dollar to Euro Converter: 10000 to 8500.0
-java TinyTestJ.RunTests TestSuite
-Tests: passed: 30, failed 0.
