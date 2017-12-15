@@ -11,6 +11,7 @@ public class ConverterFactory{
 		m = new LinkedHashMap<String, Class>();
 		m.put("DollarToEuro", DollarToEuroConverter.class);
 		m.put("EuroToDollar", EuroToDollarConverter.class);
+		m.put("DollarToPound", DollarToPoundConverter.class);
 		m.put("CelsiusToFahrenheit", CelsiusToFahrenheitConverter.class);
 		m.put("FahrenheitToCelsius", FahrenheitToCelsiusConverter.class);
 		m.put("KilometerToMile", KilometerToMileConverter.class);

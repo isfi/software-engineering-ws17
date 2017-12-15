@@ -9,8 +9,7 @@ class ConverterCommand implements Command {
 
 	@Override
 	public void execute() {
-		System.out
-				.println(UnitConverter.toString() + ", converted " + inValue + " to " + UnitConverter.convert(inValue));
+		System.out.println(UnitConverter.toString() + ", converted " + inValue + " to " + UnitConverter.convert(inValue));
 	}
 
 }

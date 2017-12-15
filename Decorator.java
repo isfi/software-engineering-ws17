@@ -18,6 +18,6 @@ public abstract class Decorator implements UnitConverterInterface {
 	@Override
 	public void print() {
 		decoratedConverter.print();
-	};
+	}
 
 }
