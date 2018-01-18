@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<project name="Assignment 06" default="jar" basedir=".">
+	<target name="init">
+      <property name="sourceDir" value="." />
+      <property name="outputDir" value="." />
+   </target>
+	<target name="build" depends="init">
+		<javac srcdir="${sourceDir}" destdir="${outputDir}" />
+	</target>
+	<target name="run" depends="build">
+       <java classname="TinyTestJ.RunTests" fork="true">
+		<arg value="TestSuite"/>
+	   </java>
+	</target>
+	<target name="jar" depends="run">
+	    <jar destfile="converter.jar" basedir=".">
+            <manifest>
+                <attribute name="Main-Class" value="Main"/>
+            </manifest>
+        </jar>
+	</target>
+
+</project>
