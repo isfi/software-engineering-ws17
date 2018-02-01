@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		LinkedList<Command> CommandQueue = new LinkedList<Command>();
 		// String conversion = args[0];
 		// String value = args[args.length-1];
@@ -20,6 +20,10 @@ class Main {
 			if(arguments.length == 3 && arguments[1].equals("inverse")) {
 				command = InverseexecuteWithFactory(arguments[0], arguments[2]);
 			}
+			
+			if(arguments.length > 3) {
+				throw new IllegalArgumentException();
+			}
 
 			if (command != null)
 				CommandQueue.add(command);
@@ -34,7 +38,7 @@ class Main {
 
 	}
 
-	public static String execute(String conversion, String value) {
+	public static String execute(String conversion, String value) throws Exception{
 		UnitConverterInterface myConverter = null;
 		boolean checkIn;
 		switch (conversion) {
@@ -62,19 +66,31 @@ class Main {
 		}
 
 		if (myConverter != null) {
-			double result = myConverter.convert(Double.parseDouble(value));
-			return myConverter.toString() + ": " + value + " to " + result;
+			try 
+			{double result = myConverter.convert(Double.parseDouble(value));
+			return myConverter.toString() + ": " + value + " to " + result;}
+			catch(IllegalTempException e){
+				System.out.println("The input temperature is "+ e.getTemp() + "below absolute zero");
+				e.printStackTrace();
+			}
+			
 		}
 		return "Something went wrong";
 	}
 
-	public static Command executeWithFactory(String conversion, String value) {
+	public static Command executeWithFactory(String conversion, String value) throws Exception {
 		double inValue = Double.parseDouble(value);
+		
 		ConverterFactory cf = ConverterFactory.getInstance();
 		UnitConverter uc = cf.create(conversion);
 		if (uc != null) {
-			Command command = new ConverterCommand(uc, inValue);
-			return command;
+			try{Command command = new ConverterCommand(uc, inValue);
+			return command;}
+			catch(NumberFormatException e) {
+				System.out.println("The input value is not a legal number format.");
+				e.printStackTrace();
+			}
+			
 			/*
 			 * double result = new InverseDecorator (uc).convert(Double.parseDouble(value));
 			 * return uc.toString() + ": " + value + " to " + result;

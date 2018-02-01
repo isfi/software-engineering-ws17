@@ -31,10 +31,12 @@ public class ConverterFactory{
 		try{
 			return (UnitConverter) c.newInstance();
 		} catch(InstantiationException e) {
+			System.out.println("converter type not found!");
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		} catch (NullPointerException e){
+			System.out.println("converter type not found!");
 			e.printStackTrace();
 		}
 		return null;

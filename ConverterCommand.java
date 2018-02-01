@@ -8,7 +8,7 @@ class ConverterCommand implements Command {
 	}
 
 	@Override
-	public void execute() {
+	public void execute() throws Exception {
 		System.out.println(UnitConverter.toString() + ", converted " + inValue + " to " + UnitConverter.convert(inValue));
 	}
 

@@ -38,7 +38,7 @@ public class ChainDecorator extends Decorator {
 	}
 
 	@Override
-	public double convert(double inValue) {
+	public double convert(double inValue) throws Exception {
 		double secondconversion = m.get(SecondInput);
 		// get string to know what you convert
 		//hashmap for hashing converters

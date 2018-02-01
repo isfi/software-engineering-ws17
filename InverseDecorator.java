@@ -11,7 +11,7 @@ public class InverseDecorator extends Decorator {
 	}
 
 	@Override
-	public double convert(double inValue) {
+	public double convert(double inValue) throws Exception {
 		// make it inverse
 		double conversion = decoratedConverter.convert(inValue) / inValue;
 

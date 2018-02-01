@@ -6,7 +6,7 @@ public abstract class Decorator implements UnitConverterInterface {
 	}
 
 	//@Override
-	public double convert(double inValue) {
+	public double convert(double inValue)throws Exception {
 		return decoratedConverter.convert(inValue);
 	};
 
